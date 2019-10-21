@@ -107,7 +107,7 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
 
             knob.isHidden = false
             knobWidthConstraint.constant = max(targetFrame.width, knob.height)
-            knobXMarginConstraint.constant = targetFrame.origin.x
+            knobXMarginConstraint.constant = targetFrame.origin.x + knobXMargin * 2
 
             if isAnimateFocusMoving {
                 UIView.animateWithSystemMotion({

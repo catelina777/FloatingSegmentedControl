@@ -34,7 +34,7 @@
                                     <constraint firstAttribute="width" constant="100" id="8Oi-WD-VP5"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-na-WaP">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="QOT-na-WaP">
                                 <rect key="frame" x="4" y="4" width="406" height="32"/>
                             </stackView>
                         </subviews>
