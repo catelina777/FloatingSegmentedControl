@@ -23,6 +23,17 @@ final class ViewController: UIViewController {
         control.isAnimateFocusMoving = true
     }
 
+    @IBAction func didTap1Button(_ sender: Any) {
+        control.move(to: 0)
+    }
+
+    @IBAction func didTap2Button(_ sender: Any) {
+        control.move(to: 1)
+    }
+
+    @IBAction func didTap3Button(_ sender: Any) {
+        control.move(to: 2)
+    }
 
     @objc func update(_ sender: FloatingSegmentedControl) {
         print("focused index is \(sender.focusedIndex)")
