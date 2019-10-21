@@ -40,6 +40,72 @@ extension UIView {
         }
     }
 
+    var origin: CGPoint {
+        get {
+            return frame.origin
+        }
+        set {
+            var r = frame
+            r.origin = newValue
+            frame = r
+        }
+    }
+
+    var x: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            var r = frame
+            r.origin.x = newValue
+            frame = r
+        }
+    }
+
+    var y: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            var r = frame
+            r.origin.y = newValue
+            frame = r
+        }
+    }
+
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            var r = frame
+            r.size = newValue
+            frame = r
+        }
+    }
+
+    var width: CGFloat {
+        get {
+            return frame.size.width
+        }
+        set {
+            var r = frame
+            r.size.width = newValue
+            frame = r
+        }
+    }
+
+    var height: CGFloat {
+        get {
+            return self.frame.size.height
+        }
+        set {
+            var r = frame
+            r.size.height = newValue
+            frame = r
+        }
+    }
+
     var viewController: UIViewController? {
         var resp: UIResponder? = self
         while let next = resp?.next {
@@ -50,7 +116,6 @@ extension UIView {
         }
         return nil
     }
-
 
     // MARK: -
     class func initWithSize(_ size: CGSize) -> UIView {

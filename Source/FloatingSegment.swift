@@ -37,15 +37,23 @@ class FloatingSegment: UIView, NibInstantiatable {
 
     weak var floatingSegmentedControl: FloatingSegmentedControl?
 
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     @IBAction func didTapButton(_ sender: UIButton) {
         floatingSegmentedControl?.select(segment: self)
     }
 
     func setActiveColor() {
-        tintColor = .white
+        titleColor = .white
     }
 
     func setInactiveColor() {
-        tintColor = .secondaryLabel
+        titleColor = .secondaryLabel
     }
 }

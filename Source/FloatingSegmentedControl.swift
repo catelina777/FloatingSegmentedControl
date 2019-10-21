@@ -40,8 +40,8 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
         setUp()
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
         setUp()
     }
 
@@ -50,7 +50,8 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
     }
 
     private func loadNib() {
-        let view = FloatingSegmentedControl.fromNib(inBundle: nil, filesOwner: self)
+        let bundle = Bundle(for: type(of: self))
+        let view = FloatingSegmentedControl.fromNib(inBundle: bundle, filesOwner: self)
         addSubview(view)
 
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -82,7 +83,7 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
             return CGSize(width: frame.height, height: UIView.noIntrinsicMetric)
         }
 
-        let width = stackView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).width + stackView.frame.origin.x * 2
+        let width = stackView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).width + stackView.x * 2
         return CGSize(width: width, height: UIView.noIntrinsicMetric)
     }
 
@@ -94,6 +95,8 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
         super.layoutSubviews()
         self.layoutIfNeeded()
         backgroundView.layer.cornerRadius = backgroundView.bounds.height / 2
+
+        updateFocusSegment()
     }
 
     private func updateFocusSegment() {
@@ -103,7 +106,7 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
             let targetFrame = convert(targetSegment.frame, to: targetSegment.superview)
 
             knob.isHidden = false
-            knobWidthConstraint.constant = max(targetFrame.width, knob.frame.height)
+            knobWidthConstraint.constant = max(targetFrame.width, knob.height)
             knobXMarginConstraint.constant = targetFrame.origin.x
 
             if isAnimateFocusMoving {
@@ -119,19 +122,23 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
             }
         } else {
             knob.isHidden = true
-            knobWidthConstraint.constant = knob.frame.height
+            knobWidthConstraint.constant = knob.height
             knobXMarginConstraint.constant = knobXMargin
         }
     }
 
     private func index(of segment: FloatingSegment) -> Int? {
-        segments.firstIndex(of: segment)
+        if segments.contains(segment) {
+            return segments.firstIndex(of: segment)
+        }
+        return nil
     }
 
     public func setSegments(with titles: [String]) {
         removeAllSegments()
         titles.forEach {
-            let segment: FloatingSegment = FloatingSegment.fromNib()
+            let bundle = Bundle(for: FloatingSegmentedControl.self)
+            let segment: FloatingSegment = FloatingSegment.fromNib(inBundle: bundle, filesOwner: nil)
             segment.floatingSegmentedControl = self
             segment.title = $0
             stackView.addArrangedSubview(segment)

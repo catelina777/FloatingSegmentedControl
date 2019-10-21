@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dDM-yn-IyI" customClass="FloatingSegment" customModule="FloatingSegmentedControl" customModuleProvider="target">
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="A8h-xZ-dMM" customClass="FloatingSegment" customModule="FloatingSegmentedControl" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="102" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3U9-Re-Kp8">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTE-cM-jqe">
                     <rect key="frame" x="0.0" y="0.0" width="102" height="40"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <inset key="contentEdgeInsets" minX="18" minY="0.0" maxX="18" maxY="0.0"/>
@@ -21,23 +21,23 @@
                         <color key="titleColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
-                        <action selector="didTapButton:" destination="dDM-yn-IyI" eventType="touchUpInside" id="Dp1-dO-yUM"/>
+                        <action selector="didTapButton:" destination="A8h-xZ-dMM" eventType="touchUpInside" id="g5N-lz-IVT"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="3U9-Re-Kp8" secondAttribute="trailing" id="OQh-FQ-cfn"/>
-                <constraint firstItem="3U9-Re-Kp8" firstAttribute="top" secondItem="dDM-yn-IyI" secondAttribute="top" id="fk9-Ym-XLL"/>
-                <constraint firstItem="3U9-Re-Kp8" firstAttribute="leading" secondItem="dDM-yn-IyI" secondAttribute="leading" id="mx5-fe-91N"/>
-                <constraint firstAttribute="bottom" secondItem="3U9-Re-Kp8" secondAttribute="bottom" id="qgr-e1-pMD"/>
+                <constraint firstItem="KTE-cM-jqe" firstAttribute="leading" secondItem="A8h-xZ-dMM" secondAttribute="leading" id="7Ta-jA-az7"/>
+                <constraint firstAttribute="trailing" secondItem="KTE-cM-jqe" secondAttribute="trailing" id="Bki-NU-suV"/>
+                <constraint firstAttribute="bottom" secondItem="KTE-cM-jqe" secondAttribute="bottom" id="K5T-Kk-ddQ"/>
+                <constraint firstItem="KTE-cM-jqe" firstAttribute="top" secondItem="A8h-xZ-dMM" secondAttribute="top" id="PsO-My-SQc"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <viewLayoutGuide key="safeArea" id="pCi-cq-gTd"/>
+            <viewLayoutGuide key="safeArea" id="Bpt-LW-vky"/>
             <connections>
-                <outlet property="button" destination="3U9-Re-Kp8" id="sTn-g4-Fx8"/>
+                <outlet property="button" destination="KTE-cM-jqe" id="NXf-o2-XeP"/>
             </connections>
             <point key="canvasLocation" x="76.811594202898561" y="-56.25"/>
         </view>

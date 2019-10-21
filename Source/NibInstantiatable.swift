@@ -20,7 +20,7 @@ extension NibInstantiatable where Self: UIView {
     }
 
     public static func nib(inBundle bundle: Bundle?) -> UINib {
-        return UINib(nibName: self.nibName, bundle: bundle)
+        return UINib(nibName: nibName, bundle: bundle)
     }
 
     public static func fromNib<T:UIView>(inBundle bundle: Bundle? = nil, filesOwner: Any? = nil) -> T {
