@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40162AC3235CAA98008D8F62 /* FloatingSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 40162AC1235CAA98008D8F62 /* FloatingSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		40162ACD235CB07B008D8F62 /* FloatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40162ACC235CB07B008D8F62 /* FloatingControl.swift */; };
+		40162ACD235CB07B008D8F62 /* FloatingSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40162ACC235CB07B008D8F62 /* FloatingSegmentedControl.swift */; };
 		40162ACF235CB08F008D8F62 /* FloatingSegmentedControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40162ACE235CB08F008D8F62 /* FloatingSegmentedControl.xib */; };
 		40162AD1235CB0F4008D8F62 /* FloatingSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40162AD0235CB0F4008D8F62 /* FloatingSegment.xib */; };
 		40162AD5235CB10C008D8F62 /* FloatingSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40162AD4235CB10C008D8F62 /* FloatingSegment.swift */; };
@@ -20,7 +20,7 @@
 		40162ABE235CAA98008D8F62 /* FloatingSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FloatingSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40162AC1235CAA98008D8F62 /* FloatingSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FloatingSegmentedControl.h; sourceTree = "<group>"; };
 		40162AC2235CAA98008D8F62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		40162ACC235CB07B008D8F62 /* FloatingControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingControl.swift; sourceTree = "<group>"; };
+		40162ACC235CB07B008D8F62 /* FloatingSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingSegmentedControl.swift; sourceTree = "<group>"; };
 		40162ACE235CB08F008D8F62 /* FloatingSegmentedControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingSegmentedControl.xib; sourceTree = "<group>"; };
 		40162AD0235CB0F4008D8F62 /* FloatingSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FloatingSegment.xib; sourceTree = "<group>"; };
 		40162AD4235CB10C008D8F62 /* FloatingSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingSegment.swift; sourceTree = "<group>"; };
@@ -58,7 +58,7 @@
 		40162AC0235CAA98008D8F62 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				40162ACC235CB07B008D8F62 /* FloatingControl.swift */,
+				40162ACC235CB07B008D8F62 /* FloatingSegmentedControl.swift */,
 				40162ACE235CB08F008D8F62 /* FloatingSegmentedControl.xib */,
 				40162AD4235CB10C008D8F62 /* FloatingSegment.swift */,
 				40162AD0235CB0F4008D8F62 /* FloatingSegment.xib */,
@@ -163,7 +163,7 @@
 			files = (
 				40162B18235CCE7D008D8F62 /* UIView.swift in Sources */,
 				40162AD7235CB77B008D8F62 /* NibInstantiatable.swift in Sources */,
-				40162ACD235CB07B008D8F62 /* FloatingControl.swift in Sources */,
+				40162ACD235CB07B008D8F62 /* FloatingSegmentedControl.swift in Sources */,
 				40162AD5235CB10C008D8F62 /* FloatingSegment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
