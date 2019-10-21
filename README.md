@@ -10,7 +10,7 @@ Provide segment control like iOS13 photo app
 ## This library makes this repository easy to use 👀
 [FloatingSwitch]https://github.com/usagimaru/FloatingSwitch
 
-1             |  2
+light             |  dark
 :-------------------------:|:-------------------------:
 ![](Images/light-mode_example.png)  |  ![](Images/dark-mode_example.png)
 
@@ -18,7 +18,9 @@ Provide segment control like iOS13 photo app
 # Installation 🚀
 
 ## Carthage
-`github "catelina777/FloatingSegmentedControl"`
+```
+github "catelina777/FloatingSegmentedControl"
+```
 
 # Usage
 1. Install a custom view on Interface Builder.
