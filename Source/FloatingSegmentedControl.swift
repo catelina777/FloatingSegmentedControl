@@ -45,27 +45,6 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
         setUp()
     }
 
-    private func setUp() {
-        loadNib()
-    }
-
-    private func loadNib() {
-        let bundle = Bundle(for: type(of: self))
-        let view = FloatingSegmentedControl.fromNib(inBundle: bundle, filesOwner: self)
-        addSubview(view)
-
-        view.translatesAutoresizingMaskIntoConstraints = false
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
-                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-                                                      metrics: nil,
-                                                      views: ["view": view]))
-
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|",
-                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
-                                                      metrics: nil,
-                                                      views: ["view" : view]))
-    }
-
     open override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -97,6 +76,67 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
         backgroundView.layer.cornerRadius = backgroundView.bounds.height / 2
 
         updateFocusSegment()
+    }
+
+    /// Add segment elements
+    /// - Parameter titles: Segment titles
+    public func setSegments(with titles: [String]) {
+        removeAllSegments()
+        titles.forEach {
+            let bundle = Bundle(for: FloatingSegmentedControl.self)
+            let segment: FloatingSegment = FloatingSegment.fromNib(inBundle: bundle, filesOwner: nil)
+            segment.floatingSegmentedControl = self
+            segment.title = $0
+            stackView.addArrangedSubview(segment)
+        }
+    }
+
+    /// Select segment from code
+    /// - Parameter index: Destination index
+    public func move(to index: Int) {
+        if index < segments.count {
+            focusedIndex = index
+            sendAction()
+        } else {
+            print("index \(index) is out of index")
+        }
+    }
+
+    /// Set a function to be called when the button is pressed
+    /// - Parameter target: Calling class
+    /// - Parameter selector: The function to call
+    public func addTarget(_ target: NSObject, action selector: Selector) {
+        self.target = target
+        self.action = selector
+    }
+
+
+    func select(segment: FloatingSegment) {
+        if let targetIndex = index(of: segment) {
+            focusedIndex = targetIndex
+            sendAction()
+        }
+    }
+
+    private func setUp() {
+        loadNib()
+    }
+
+    private func loadNib() {
+        let bundle = Bundle(for: type(of: self))
+        let view = FloatingSegmentedControl.fromNib(inBundle: bundle, filesOwner: self)
+        addSubview(view)
+
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|",
+                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                                                      metrics: nil,
+                                                      views: ["view": view]))
+
+        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|",
+                                                      options: NSLayoutConstraint.FormatOptions(rawValue: 0),
+                                                      metrics: nil,
+                                                      views: ["view" : view]))
     }
 
     private func updateFocusSegment() {
@@ -134,29 +174,15 @@ open class FloatingSegmentedControl: UIView, NibInstantiatable {
         return nil
     }
 
-    public func setSegments(with titles: [String]) {
-        removeAllSegments()
-        titles.forEach {
-            let bundle = Bundle(for: FloatingSegmentedControl.self)
-            let segment: FloatingSegment = FloatingSegment.fromNib(inBundle: bundle, filesOwner: nil)
-            segment.floatingSegmentedControl = self
-            segment.title = $0
-            stackView.addArrangedSubview(segment)
-        }
-    }
-
-    func removeAllSegments() {
+    private func removeAllSegments() {
         segments.forEach {
             $0.removeFromSuperview()
         }
     }
 
-    func select(segment: FloatingSegment) {
-        if let targetIndex = index(of: segment) {
-            focusedIndex = targetIndex
-            if let action = action {
-                UIApplication.shared.sendAction(action, to: target, from: self, for: nil)
-            }
+    private func sendAction() {
+        if let action = action {
+            UIApplication.shared.sendAction(action, to: target, from: self, for: nil)
         }
     }
 }

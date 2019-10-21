@@ -9,18 +9,17 @@
 import UIKit
 import FloatingSegmentedControl
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
-    @IBOutlet weak var control: FloatingSegmentedControl!
+    @IBOutlet private weak var control: FloatingSegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
         control.setSegments(with: [
             "Today", "Days", "Months"
         ])
-        control.target = self
-        control.action = #selector(update(_:))
+        control.addTarget(self, action: #selector(update(_:)))
         control.isAnimateFocusMoving = true
     }
 
